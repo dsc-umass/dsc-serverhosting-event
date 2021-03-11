@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<title>[Your Name]'s Static Website</title>
+	</head>
+	<body>
+		<h1 class="title">[Your Name]</h1>
+		<div class="subtitle">
+			Hi, I'm a <b>[Year]</b> at UMass Amherst interested in web dev and cloud!
+		</div>
+		<div class="break"></div>
+		<div class="break"></div>
+
+		<div class="content">
+			<p>
+				This is my website that'll be served on AWS using Nginx &#128526; The
+				website is statically written in HTML and hosted on an AWS EC2 instance
+				using Nginx which sets up the reverse proxy.
+			</p>
+			<div>
+				I learnt how to build this at the UMass
+				<text class="acm">ACM</text>
+				and
+				<text class="dsc">DSC</text>
+				workshop on server hosting, where I learnt
+				<ol class="list">
+					<li class="list-item">Version Control with <b>git</b></li>
+					<li class="list-item">Code Collaboration on <b>GitHub</b></li>
+					<li class="list-item">Building <b>static webapps</b></li>
+					<li class="list-item">How to <b>SSH</b> into a server</li>
+					<li class="list-item">Working with <b>AWS EC2</b></li>
+					<li class="list-item">Using <b>Nginx</b></li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="socials">
+			<h2>Find me at</h2>
+			<a href="https://github.com/{username}/" target="_blank">
+				<i
+					class="fa fa-github socials-item"
+					style="font-size: 3rem; color: #ad5c51"
+				></i>
+			</a>
+			<a href="https://linkedin.com/in/{username}" target="_blank">
+				<i
+					class="fa fa-linkedin socials-item"
+					style="font-size: 3rem; color: #0e76a8"
+				></i>
+			</a>
+		</div>
+		<footer>Made with &hearts; by [Your Name]</footer>
+	</body>
+
+	<style>
+		html {
+			overflow-x: auto;
+			font-family: Helvetica, "Lucida Sans", "Lucida Sans Regular",
+				"Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+		}
+		body {
+			color: black;
+			padding: 5rem;
+			padding-left: 8rem;
+			padding-right: 8rem;
+			animation: pulse 12s infinite alternate;
+		}
+		@keyframes pulse {
+			0% {
+				background-color: #fcd1d1;
+			}
+			33.3% {
+				background-color: #ebded4;
+			}
+			66.57% {
+				background-color: #d3e0dc;
+			}
+			100% {
+				background-color: #aee1e1;
+			}
+		}
+		h1 {
+			text-align: center;
+			font-size: 3.5rem;
+		}
+		h2 {
+			font-size: 2rem;
+		}
+		li {
+			list-style: none;
+		}
+		a {
+			text-decoration: none;
+		}
+		.subtitle {
+			font-size: 2rem;
+			text-align: center;
+			font-family: monospace;
+		}
+		.content {
+			text-align: justify;
+			font-size: 1.3rem;
+		}
+		.list {
+			display: grid;
+			padding-left: 2rem;
+		}
+		.list-item {
+			padding-top: 1rem;
+		}
+		.socials {
+			text-align: center;
+			padding-top: 2rem;
+		}
+
+		.socials-item {
+			padding: 1rem;
+		}
+
+		.acm {
+			color: #881c1c;
+		}
+		.dsc {
+			color: #4285f5;
+		}
+
+		.break {
+			padding-top: 2rem;
+		}
+
+		footer {
+			text-align: center;
+			padding-top: 1rem;
+		}
+		/*iPads*/
+		@media (max-width: 1366px) {
+			body {
+				padding: 3rem;
+			}
+		}
+		/*Mobile Phones*/
+		@media (max-width: 480px) {
+			body {
+				padding: 1rem;
+			}
+			h1 {
+				font-size: 2.5rem;
+			}
+			.break {
+				padding-top: 1rem;
+			}
+			.subtitle {
+				font-size: 1.6rem;
+			}
+		}
+	</style>
+</html>
