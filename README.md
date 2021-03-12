@@ -4,31 +4,62 @@ This document is meant to be worked/read through during one of our workshops, bu
 
 # Topics
 
-1. Making your website.
-2. Creating your server.
-3. Installing NGINX on your server.
-4. Uploading your html to your server.
-   1. (optional) Connecting via SSH and SFTP
-5. Add to DNS.
 
+1. Clone this repo
+2. Making your website.
+3. Creating your server.
+4. Installing NGINX on your server.
+5. Uploading your html to your server.
+   1. (optional) Connecting via SSH and SFTP
+6. Add to DNS.
+
+
+## Clone this repo
+
+As you can most likely tell by the website you're on, we use git to manage, distribute, and version control our code. In summary "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. "
+
+The very first step you should take in this workshop is copy the code locally to your computer. There are two ways you can do this, by just downloading it through your browser, or through your terminal. 
+
+### Through Browser
+
+Go to this workshop's [github repo](https://github.com/dsc-umass/dsc-serverhosting-event) and look for the green button on the top right that says `Code`. 
+Click on it and select the download zip, 
+then decompress it in the workspace folder of your choice. 
+
+### Through Terminal
+
+If you already have [git](https://git-scm.com/) installed. Great! If not, then we do recommend downloading it [here](https://git-scm.com/).
+
+Once downloaded, open up your terminal and `cd` into your preferred workspace and enter 
+```bash 
+git clone https://github.com/dsc-umass/dsc-serverhosting-event.git
+```
 
 ## Making your website.
 
-`Insert html part here`
+Now its time for the creative part.
 
+Select your favorite text editor and open the index.html file. 
+
+There are 5 places you will insert some cool customization that we provide, but of course, this is your website and should play around the html code. Change some colors, fonts, or add text of your liking, change up some hex colors for fun. I don't know, this is your website!
+Go to line 10, 13, 45, 51, 58.
 
 ## Creating your server.
 
+Now your speaker/lecturer will help you through this process.
 
 ## Installing NGINX on your server.
 
 Because we are using Ubuntu server as out OS of choice it allows us to use the apt package manager.
 Think of apt like the app store of ubuntu servers.
 
-Enter `$ sudo apt-get install nginx` into your terminal on your server and press y when prompted to install nginx. 
+Enter `sudo apt-get install nginx` into your terminal on your server and press y when prompted to install nginx. 
 
 Once installed, it should automatically run nginx and take care of most maintenance, such as starting it on boot and starting the software.
-If you really want to check if its running, type in `sudo systemctl status nginx`.
+If you really want to check if its running, type in 
+```bash 
+sudo systemctl status nginx
+```
 
 And now you have an active server hosting files on your server... just not the files you want. To test if it actually works, enter the IP of your server into your browser, and you should see something like this.
 ![](welcome.png)
@@ -43,7 +74,15 @@ On a normal nginx installation, the website is stored in the directory `/var/www
 
 If you go there your self using `cd /var/www/html`, you will see the `index.nginx-debian.html` file thats currently serving as the nginx welcome page.
 
-Delete that file with `sudo rm index.nginx-debian.html` and create a new file called `index.html`. Put your website code into there by running `sudo nano index.html`, pasting your code, then saving by pressing ctrl + x, then y. 
+Delete that file with 
+```bash 
+sudo rm index.nginx-debian.html
+```
+ and create a new file called `index.html`. Put your website code into there by running 
+ ```bash
+ sudo nano index.html
+ ```
+pasting your code, then saving by pressing ctrl + x, then y. 
 
 This is telling the text editor, nano, that you want to exit then save the file, which in turns creates a file with the code you just typed.
 
