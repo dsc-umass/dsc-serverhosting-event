@@ -8,23 +8,31 @@ This document is meant to be worked/read through during one of our workshops, bu
 1. [Clone this repo.](https://github.com/dsc-umass/dsc-serverhosting-event#clone-this-repo)
 2. [Making your website.](https://github.com/dsc-umass/dsc-serverhosting-event#making-your-website)
 3. [Creating your server.](https://github.com/dsc-umass/dsc-serverhosting-event#installing-nginx-on-your-server)
-4. [Installing NGINX on your server.](https://github.com/dsc-umass/dsc-serverhosting-event#installing-nginx-on-your-server)
-5. [Uploading your html to your server.](https://github.com/dsc-umass/dsc-serverhosting-event#uploading-your-html-to-your-server)
+4. [More Git.](https://github.com/dsc-umass/dsc-serverhosting-event#more-git)
+5. [Installing NGINX on your server.](https://github.com/dsc-umass/dsc-serverhosting-event#installing-nginx-on-your-server)
+6. [Uploading your html to your server.](https://github.com/dsc-umass/dsc-serverhosting-event#uploading-your-html-to-your-server)
    1. (optional) [Connecting via SSH and SFTP](https://github.com/dsc-umass/dsc-serverhosting-event#uploading-files-via-sftp)
-6. [Add to DNS.](https://github.com/dsc-umass/dsc-serverhosting-event#add-to-dns)
+7. [Add to DNS.](https://github.com/dsc-umass/dsc-serverhosting-event#add-to-dns)
 
 
 ## Clone this repo
 
-As you can most likely tell by the website you're on, we use git to manage, distribute, and version control our code. In summary "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency. "
+As you can most likely tell by the website you're on, we use git to manage, distribute, and version control our code. In summary "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency."
 
-The very first step you should take in this workshop is copy the code locally to your computer. There are two ways you can do this, by just downloading it through your browser, or through your terminal. 
+We want you to learn the git following basics with:
+- Forking
+- Cloning
+
+The very first step you should take in this workshop is fork this repository to your GitHub account, by just clicking `Fork` on the upper right corner of the GitHub app. Forking creates a copy of the repository in your set of repositories but this copy is linked back to the original repo. Forking is a good practice for contributing to open-source projects.
+
+Next, we'll be cloning your repository locally to your computer. Cloning creates a copy (clone) of the repository.
+
+There are two ways you can do this, by just downloading it through your browser, or through your terminal. 
 
 ### Through Browser
 
-Go to this workshop's [github repo](https://github.com/dsc-umass/dsc-serverhosting-event) and look for the green button on the top right that says `Code`. 
-Click on it and select the download zip, 
-then decompress it in the workspace folder of your choice. 
+Go your forked repository on GitHub and look for the green button on the top right that says `Code`. 
+Click on it and select the download zip, then decompress it in the workspace folder of your choice. 
 
 ### Through Terminal
 
@@ -32,7 +40,7 @@ If you already have [git](https://git-scm.com/) installed. Great! If not, then w
 
 Once downloaded, open up your terminal and `cd` into your preferred workspace and enter 
 ```bash 
-git clone https://github.com/dsc-umass/dsc-serverhosting-event.git
+git clone https://github.com/{username}/dsc-serverhosting-event.git
 ```
 
 ## Making your website.
@@ -43,6 +51,45 @@ Select your favorite text editor and open the index.html file.
 
 There are 5 places you will insert some cool customization that we provide, but of course, this is your website and should play around the html code. Change some colors, fonts, or add text of your liking, change up some hex colors for fun. I don't know, this is your website!
 Go to line 10, 13, 45, 51, 58.
+
+## More Git
+
+With the website updates finalized, it's time to push upload our changes on GitHub. Here, we'll be learning some more important git essentials:
+- Branches
+- Commits
+- Remotes
+- PRs
+
+Git uses branches and commits to maintain different versions of code. Different branches can have linear or parallel version histories. Your default branch should be set to `master`, so let's create a new branch to contain your changes:
+`git checkout -b update-data`
+
+This creates a branch named `update-data`. You can verify this by running `git branch`, which lists all local branches.
+
+Now let's add our changes to the `update-data` branch.
+
+Git tracks changes on all existing files, which can be checked by `git status`. This command lists all changed and untracked files. In order to add your changes, we'll run
+
+`git add <file-name>`
+
+This stages this file in git, meaning that it's ready to be committed. If you want to add all files, you should run `git add .`, which stages all files in the current directory. We're ready to make your first commit:
+
+`git commit -m "<msg>"`
+
+Here, we're committing all our staged changes to git and the `-m` flag is used to add a custom message.
+
+Our changes our still local, so let's push them to remote:
+
+`git push origin update-data`
+
+Git can work with multiple remotes in a local repo but the default remote where it's cloned from is called `origin`.
+
+So good so far! All our changes should show up on our GitHub repository now.
+
+Let's navigate to our branch (`update-data`) on our repository. Here, you should see a button for `Pull Request` which will open a pull request from the current branch (source) to another (destination). A PR is git's way of letting developers compare, review and (if everything looks good) merge changes. Your PR should be targeted to `master` by default. Go ahead and fill in a relevant description.
+
+Once you've opened the PR, click on `Files Changed` to review your changes. If everything looks good, click merge, and all your in `update-data` will become a part of `master`.
+
+Congratulations! You've mastered the basics of git.
 
 ## Creating your server.
 
@@ -56,7 +103,7 @@ Think of apt like the app store of ubuntu servers.
 Enter `sudo apt-get install nginx` into your terminal on your server and press y when prompted to install nginx. 
 
 Once installed, it should automatically run nginx and take care of most maintenance, such as starting it on boot and starting the software.
-If you really want to check if its running, type in 
+If you really want to check if its running, type in
 ```bash 
 sudo systemctl status nginx
 ```
