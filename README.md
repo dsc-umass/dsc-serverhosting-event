@@ -5,13 +5,13 @@ This document is meant to be worked/read through during one of our workshops, bu
 # Topics
 
 
-1. Clone this repo
-2. Making your website.
-3. Creating your server.
-4. Installing NGINX on your server.
-5. Uploading your html to your server.
-   1. (optional) Connecting via SSH and SFTP
-6. Add to DNS.
+1. [Clone this repo.](https://github.com/dsc-umass/dsc-serverhosting-event#clone-this-repo)
+2. [Making your website.](https://github.com/dsc-umass/dsc-serverhosting-event#making-your-website)
+3. [Creating your server.](https://github.com/dsc-umass/dsc-serverhosting-event#installing-nginx-on-your-server)
+4. [Installing NGINX on your server.](https://github.com/dsc-umass/dsc-serverhosting-event#installing-nginx-on-your-server)
+5. [Uploading your html to your server.](https://github.com/dsc-umass/dsc-serverhosting-event#uploading-your-html-to-your-server)
+   1. (optional) [Connecting via SSH and SFTP](https://github.com/dsc-umass/dsc-serverhosting-event#uploading-files-via-sftp)
+6. [Add to DNS.](https://github.com/dsc-umass/dsc-serverhosting-event#add-to-dns)
 
 
 ## Clone this repo
@@ -138,6 +138,31 @@ Now enter in the host field, `sftp://YOUR-SERVER-IP`, and the username used in y
 The server directory will come up in the right side of the window and you are able to adventure and manipulate as many files as you like. 
 
 To add files to the web directory, just navigate to the `/var/www/html` directory and any files you drag into the window, such as html, css, and js files will be hosted and served.
+
+## Add to DNS
+
+This step is to help bind your server IP to a domain name. Just as you type google.com or amazon.com in your browser, it all gets resolved into an IP in the background.
+
+We are going to be using google domains DNS, but anywhere you buy a domain will go through the same process. 
+
+In the overview page, go to the left menu and select the DNS tab.
+![](dnsoverview.png)
+
+Once opened, you will now see plenty of different DNS configurations that are all needed for different types of applications and purposes.
+I do recommend looking into what each record is fore, but that is for another workshop.
+Scroll down to the page until you see custom records. We will be creating an `A` record. This is the default DNS record that plainly maps a IPv4 address, like the one pointing to your server, to a domain name. 
+
+Enter your server IP in the IPv4 box and just press add. Now you're done! 
+What happens now, is the new domain record will be shared and dispersed with the DNS servers of the world so anyone and everyone will be able to access your website.
+
+After you select add, it should look something like this.
+
+![](dnsa.png)
+
+To really see this propagation in action, go to dnschecker.org and enter your domain, and you will see this.
+
+![](dnschecker.png)
+
 
 <!-- Now there are two paths you can go. For ease of time we will just be replacing the contents in this file with yours, but if you want to do it the official way, you must create a new config for your site.
 
